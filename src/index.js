@@ -125,7 +125,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const newOppositeOpacity = this.state.opacity.interpolate({
       inputRange: [0, 1],
       outputRange: [1, 0],
