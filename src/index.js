@@ -375,7 +375,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
       this.state.tooltipContainerScale,
       {
         toValue: 1,
-        useNativeDriver: true,
+        useNativeDriver: false, 
         duration: this.props.timingConfig && this.props.timingConfig.duration
           ? this.props.timingConfig.duration
           : 200,
@@ -386,7 +386,8 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
         this.state.tooltipContainerScale,
         {
           toValue: 1,
-          useNativeDriver: true,
+          useNativeDriver: false, 
+          
           tension: this.props.springConfig && this.props.springConfig.tension
             ? this.props.springConfig.tension
             : 100,
@@ -402,7 +403,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
         this.state.opacity,
         {
           toValue: 1,
-          useNativeDriver: true,
+          useNativeDriver: false, 
           duration: this.props.opacityChangeDuration
             ? this.props.opacityChangeDuration
             : 200,
@@ -417,7 +418,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
         this.state.tooltipContainerScale,
         {
           toValue: 0,
-          useNativeDriver: true,
+          useNativeDriver: false,
           duration: this.props.opacityChangeDuration
             ? this.props.opacityChangeDuration
             : 200,
@@ -427,7 +428,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
         this.state.opacity,
         {
           toValue: 0,
-          useNativeDriver: true,
+          useNativeDriver: false,
           duration: this.props.opacityChangeDuration
             ? this.props.opacityChangeDuration
             : 200,
