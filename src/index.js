@@ -13,12 +13,11 @@ import {
   StyleSheet,
   Dimensions,
   Text,
-  Easing,
-  ViewPropTypes,
+  Easing
 } from 'react-native';
 import PropTypes from 'prop-types';
 import invariant from 'invariant';
-
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import PopoverTooltipItem, { type Label, labelPropType }
   from './PopoverTooltipItem';
 
