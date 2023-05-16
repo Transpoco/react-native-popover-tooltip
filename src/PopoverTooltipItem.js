@@ -9,9 +9,9 @@ import {
   View,
   TouchableOpacity,
   StyleSheet,
-  Text,
-  ViewPropTypes,
+  Text
 } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import PropTypes from 'prop-types';
 
 export type Label = string | () => React.Node;
