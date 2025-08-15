@@ -1,8 +1,4 @@
-// @flow
-
-import type {
-  StyleObj,
-} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+// ...existing code...
 
 import * as React from 'react';
 import {
@@ -11,30 +7,23 @@ import {
   StyleSheet,
   Text
 } from 'react-native';
-import { ViewPropTypes } from 'deprecated-react-native-prop-types';
+import { ViewPropTypes, TextPropTypes } from 'deprecated-react-native-prop-types';
 import PropTypes from 'prop-types';
 
-export type Label = string | () => React.Node;
 export const labelPropType = PropTypes.oneOfType([
   PropTypes.string,
   PropTypes.func,
 ]);
 
-type Props = {
-  onPress: (userCallback: () => void) => void,
-  onPressUserCallback: () => void,
-  label: Label,
-  containerStyle: ?StyleObj,
-  labelStyle: ?StyleObj,
-};
-class PopoverTooltipItem extends React.PureComponent<Props> {
+// ...existing code...
+class PopoverTooltipItem extends React.PureComponent {
 
   static propTypes = {
     onPress: PropTypes.func.isRequired,
     onPressUserCallback: PropTypes.func.isRequired,
     label: labelPropType.isRequired,
     containerStyle: ViewPropTypes.style,
-    labelStyle: Text.propTypes.style,
+  labelStyle: TextPropTypes.style,
   };
   static defaultProps = {
     labelStyle: null,
