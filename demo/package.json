@@ -19,9 +19,9 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^18.0.3",
-    "react": "16.0.0-alpha.12",
-    "react-native": "^0.45.1",
+    "expo": "^50.0.0",
+    "react": "^18.2.0",
+    "react-native": "^0.74.7",
     "react-native-popover-tooltip": "1.1.4"
   }
 }

@@ -1,8 +1,4 @@
-// @flow
-
-import type {
-  StyleObj,
-} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+// ...existing code...
 
 import * as React from 'react';
 import {
@@ -17,54 +13,13 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import invariant from 'invariant';
-import { ViewPropTypes } from 'deprecated-react-native-prop-types';
-import PopoverTooltipItem, { type Label, labelPropType }
-  from './PopoverTooltipItem';
+import { ViewPropTypes, TextPropTypes } from 'deprecated-react-native-prop-types';
+import PopoverTooltipItem, { labelPropType } from './PopoverTooltipItem';
 
 const window = Dimensions.get('window');
 
-type Props = {
-  buttonComponent: React.Node,
-  buttonComponentExpandRatio: number,
-  items: $ReadOnlyArray<{ +label: Label, onPress: () => void }>,
-  componentWrapperStyle?: StyleObj,
-  overlayStyle?: StyleObj,
-  tooltipContainerStyle?: StyleObj,
-  labelContainerStyle?: StyleObj,
-  labelSeparatorColor: string,
-  labelStyle?: StyleObj,
-  setBelow: bool,
-  animationType?: "timing" | "spring",
-  onRequestClose: () => void,
-  triangleOffset: number,
-  delayLongPress: number,
-  onOpenTooltipMenu?: () => void,
-  onCloseTooltipMenu?: () => void,
-  onPress?: () => void,
-  componentContainerStyle?: StyleObj,
-  timingConfig?: { duration?: number },
-  springConfig?: { tension?: number, friction?: number },
-  opacityChangeDuration?: number,
-};
-type State = {
-  isModalOpen: bool,
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-  opacity: Animated.Value,
-  tooltipContainerScale: Animated.Value,
-  buttonComponentContainerScale: number | Animated.Interpolation,
-  tooltipTriangleDown: bool,
-  tooltipTriangleLeftMargin: number,
-  triangleOffset: number,
-  willPopUp: bool,
-  oppositeOpacity: ?Animated.Interpolation,
-  tooltipContainerX: ?Animated.Interpolation,
-  tooltipContainerY: ?Animated.Interpolation,
-  buttonComponentOpacity: number,
-};
-class PopoverTooltip extends React.PureComponent<Props, State> {
+// ...existing code...
+class PopoverTooltip extends React.PureComponent {
 
   static propTypes = {
     buttonComponent: PropTypes.node.isRequired,
@@ -78,7 +33,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
     tooltipContainerStyle: ViewPropTypes.style,
     labelContainerStyle: ViewPropTypes.style,
     labelSeparatorColor: PropTypes.string,
-    labelStyle: Text.propTypes.style,
+  labelStyle: TextPropTypes.style,
     setBelow: PropTypes.bool,
     animationType: PropTypes.oneOf([ "timing", "spring" ]),
     onRequestClose: PropTypes.func,
@@ -100,9 +55,9 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
     delayLongPress: 100,
     triangleOffset: 0,
   };
-  wrapperComponent: ?TouchableOpacity;
+  wrapperComponent;
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
     this.state = {
       isModalOpen: false,
@@ -148,14 +103,12 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
     this.props.onCloseTooltipMenu && this.props.onCloseTooltipMenu();
   }
 
-  onPressItem = (userCallback: () => void) => {
+  onPressItem = (userCallback) => {
     this.toggle();
     userCallback();
   }
 
-  onInnerContainerLayout = (
-    event: { nativeEvent: { layout: { height: number, width: number } } },
-  ) => {
+  onInnerContainerLayout = (event) => {
     const tooltipContainerWidth = event.nativeEvent.layout.width;
     const tooltipContainerHeight = event.nativeEvent.layout.height;
     if (
@@ -365,7 +318,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
     );
   }
 
-  wrapperRef = (wrapperComponent: ?TouchableOpacity) => {
+  wrapperRef = (wrapperComponent) => {
     this.wrapperComponent = wrapperComponent;
   }
 
